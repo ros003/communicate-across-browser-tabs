@@ -20,6 +20,13 @@ body {
 	color: $text;
 }
 
+form {
+	button {
+		min-width: 150px;
+		margin-left: 20px;
+	}
+}
+
 .menu {
 	display: flex;
 	align-items: center;

@@ -1,4 +1,4 @@
-import { changePageTitle } from '../../js/helper';
+import { changePageTitle, messageDisplay } from '../../js/helper';
 
 changePageTitle('Local storage');
 
@@ -8,21 +8,24 @@ const messageBroadcast = (message) => {
 }
 
 const messageReceive = (event) => {
+	console.log('event: ', event);
 	if (event.key !== 'message') return;
-
 	const message = JSON.parse(event.newValue);
-
 	if (!message) return;
 
-	if (message.type === 'receive') {
-		console.log(message.text);
-	}
+	messageDisplay(message);
+}
+
+const handleSendMessage = (event) => {
+	event.preventDefault();
+	const message = event.target.message.value;
+	if (!message) return;
+
+	messageDisplay(message);
+	messageBroadcast(message);
+
+	event.target.reset();
 }
 
 window.addEventListener('storage', messageReceive);
-
-const sendButton = document.getElementById('sendMessage');
-
-sendButton.addEventListener('click', () => {
-	messageBroadcast({ type: 'receive', text: 'Test message' });
-});
+document.forms.messageForm.addEventListener('submit', handleSendMessage);
