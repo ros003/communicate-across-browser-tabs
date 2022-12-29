@@ -1,4 +1,5 @@
-import { changePageTitle, messageDisplay } from '../../js/helper';
+import '../../scss/style.scss';
+import { changePageTitle, messageDisplay } from '../../js/helper.js';
 
 changePageTitle('Local storage');
 

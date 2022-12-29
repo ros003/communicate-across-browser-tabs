@@ -1,10 +1,12 @@
 {
 	"name": "communicate-across-browser-tabs",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Three ways to communicate across browser tabs in realtime.",
 	"main": "index.js",
 	"scripts": {
-		"start": "parcel serve src/index.html --no-source-maps --public-url / --dist-dir dist"
+		"start": "vite",
+		"build": "vite build",
+		"serve": "vite preview"
 	},
 	"repository": {
 		"type": "git",
@@ -17,11 +19,7 @@
 	},
 	"homepage": "https://github.com/ros003/communicate-across-browser-tabs#readme",
 	"devDependencies": {
-		"@parcel/transformer-sass": "^2.8.2",
-		"parcel": "^2.8.2"
-	},
-	"dependencies": {
-		"@popperjs/core": "^2.11.6",
-		"bootstrap": "^5.2.3"
+		"sass": "^1.57.1",
+		"vite": "^4.0.0"
 	}
 }

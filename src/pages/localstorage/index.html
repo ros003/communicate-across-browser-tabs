@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Communicate across browser tabs using JavaScript</title>
-	<link rel="stylesheet" href="../../scss/style.scss">
-	<script async defer type="module" src="script.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Local storage</title>
+	<script async defer type="module" src="index.js"></script>
 </head>
-<body class="l-body">
-	<div class="container">
-		<nav class="menu">
-			<a href="/" class="link-light">Home</a>
-			<a href="index.html" class="link-warning">Local Storage</a>
-			<a href="../broadcastchannel/index.html" class="link-light">Broadcast Channel</a>
-			<a href="../sharedworker/index.html" class="link-light">Shared Worker</a>
-		</nav>
+<body>
+<div class="container">
+	<nav class="menu">
+		<a href="/">Home</a>
+		<a href="/pages/localstorage/" class="active">Local Storage</a>
+		<a href="/pages/broadcastchannel/">Broadcast Channel</a>
+		<a href="/pages/sharedworker/">Shared Worker</a>
+	</nav>
 
-		<h1 class="border-bottom pb-3 mb-4">Local storage</h1>
+	<h1 class="border-bottom pb-3 mb-4">Local storage</h1>
 
-		<form id="messageForm">
-			<div>
-				<div class="d-flex mb-3">
-					<input id="messageText" type="text" name="message" class="form-control" placeholder="Just do it!!!">
+	<form id="messageForm">
+		<div class="form-item">
+			<input id="messageText" type="text" name="message" class="form-control" placeholder="Just do it!!!">
+			<button id="sendMessage" type="submit" class="btn btn-warning">Send message</button>
+		</div>
+	</form>
 
-					<button id="sendMessage" type="submit" class="btn btn-warning">Send message</button>
-				</div>
-			</div>
-		</form>
+	<div id="messagesPlaceholder" class="list-placeholder">No messages</div>
 
-		<div id="messagesPlaceholder">No messages</div>
-
-		<ul id="messagesList" class="list-group"></ul>
-	</div>
+	<ul id="messagesList" class="list-group"></ul>
+</div>
 </body>
 </html>
+
 

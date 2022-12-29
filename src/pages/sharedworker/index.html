@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Communicate across browser tabs using JavaScript</title>
-	<link rel="stylesheet" href="../../scss/style.scss">
-	<script async defer type="module" src="script.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Shared Worker</title>
+	<script async defer type="module" src="index.js"></script>
 </head>
-<body class="l-body">
+<body>
 	<div class="container">
 		<nav class="menu">
-			<a href="/" class="link-light">Home</a>
-			<a href="../localstorage/index.html" class="link-light">Local Storage</a>
-			<a href="../broadcastchannel/index.html" class="link-light">Broadcast Channel</a>
-			<a href="index.html" class="link-warning">Shared Worker</a>
+			<a href="/">Home</a>
+			<a href="/pages/localstorage/">Local Storage</a>
+			<a href="/pages/broadcastchannel/">Broadcast Channel</a>
+			<a href="/pages/sharedworker/" class="active">Shared Worker</a>
 		</nav>
 
 		<h1 class="border-bottom pb-3 mb-4">Shared Worker</h1>
 
 		<form id="messageForm">
-			<div>
-				<div class="d-flex mb-3">
-					<input id="messageText" type="text" name="message" class="form-control" placeholder="Just do it!!!">
-
-					<button id="sendMessage" type="submit" class="btn btn-warning">Send message</button>
-				</div>
+			<div class="form-item">
+				<input id="messageText" type="text" name="message" class="form-control" placeholder="Just do it!!!">
+				<button id="sendMessage" type="submit" class="btn btn-warning">Send message</button>
 			</div>
 		</form>
 
-		<div id="messagesPlaceholder">No messages</div>
+		<div id="messagesPlaceholder" class="list-placeholder">No messages</div>
 
 		<ul id="messagesList" class="list-group"></ul>
 	</div>
 </body>
 </html>
-
