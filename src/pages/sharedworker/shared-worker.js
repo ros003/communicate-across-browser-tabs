@@ -1,7 +1,7 @@
 const connections = [];
 
 onconnect = (connectEvent) => {
-	const port = connectEvent.ports[0];
+	const [port] = connectEvent.ports;
 	connections.push(port);
 
 	port.onmessage = ({ data }) => {

@@ -9,11 +9,14 @@ const messageBroadcast = (message) => {
 }
 
 const messageReceive = (event) => {
-	console.log('event: ', event);
+	/* Ignore other keys */
 	if (event.key !== 'message') return;
+
 	const message = JSON.parse(event.newValue);
+	/* Ignore empty message or message reset */
 	if (!message) return;
 
+	/* Here you act on messages */
 	messageDisplay(message);
 }
 

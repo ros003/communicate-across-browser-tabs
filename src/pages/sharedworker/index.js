@@ -7,8 +7,10 @@ const worker = new SharedWorker(new URL('shared-worker.js', import.meta.url),{ t
 
 worker.port.onmessage = (event) => {
 	const message = event.data;
+	/* Ignore empty message or message reset */
 	if (!message) return;
 
+	/* Here you act on messages */
 	messageDisplay(message);
 };
 
