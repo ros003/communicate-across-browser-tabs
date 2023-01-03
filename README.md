@@ -29,14 +29,14 @@ Cases where you need this:
 - Retrieve the latest token for authentication and share it across Browser Tabs.
 
 Three ways to communicate across browser tabs in realtime:
-1. LocalStorage
-2. Broadcast Channel API
-3. SharedWorker
+1. [LocalStorage](#local-storage)
+2. [Broadcast Channel API](#broadcast-channel-api)
+3. [SharedWorker](#sharedworker)
 
 ---
 ## Local Storage
 
-We can use LocalStorage for this because it's shared across browser contexts for the same origin and because we can listen for changes. To start with Let's add our LocalStorage event listener and a handler method that will be called when LocalStorage changes.
+We can use [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) for this because it's shared across browser contexts for the same origin and because we can listen for changes. To start with Let's add our LocalStorage event listener and a handler method that will be called when LocalStorage changes.
 
 ### Creating a storage listener
 In order to get notified when a tab sends a message to other tabs, you simply need to bind on the `storage` event.
@@ -76,7 +76,7 @@ const messagePost = (message) => {
 ---
 
 # Broadcast channel API
-Using the Broadcast Channel API, we can communicate between browsing contexts of the same origin (windows, tabs, frames, and iframes).
+Using the [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API), we can communicate between browsing contexts of the same origin (windows, tabs, frames, and iframes).
 
 ### Creating a new channel
 To begin we'll need to create a new BroadcastChannel instance that we can work with.
@@ -117,7 +117,7 @@ channel.close();
 
 ## SharedWorker
 
-A Shared Worker behaves in a similar way as regular Web Workers except that different browsing contexts from the same origin will have shared access to the worker. In other words, if you have five tabs running the same Shared Worker script, the browser will only run one instance of that script in the background, and the five tabs will have shared access to the context and state of that single running Shared Worker.
+A [Shared Worker](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker) behaves in a similar way as regular Web Workers except that different browsing contexts from the same origin will have shared access to the worker. In other words, if you have five tabs running the same Shared Worker script, the browser will only run one instance of that script in the background, and the five tabs will have shared access to the context and state of that single running Shared Worker.
 
 ### Creating a Shared Web Worker
 To create a shared web worker, you pass a JavaScript file name to a new instance of the SharedWorker object.
@@ -154,7 +154,7 @@ worker.port.postMessage(message);
 ```
 
 ### Sending & receiving data inside a Shared Worker
-Inside our worker script, we'll need a method called `onconnect` which, when called, is passed an event. Our `onconnect` function will be called anytime a new browser instance connects to our worker. Inside our event resides a ports array containing an array of the ports that trigger the `onconnect` call. We'll want to grab the first port from this array. This port is what we'll use to listen to and post messages to the port's connected browser instance.
+Inside our worker script, we'll need a method called `onconnect` which, when called, is passed an event. Our `onconnect` function will be called anytime a new browser instance connects to our worker. Inside our event resides a ports array containing an array of the ports that trigger the `onconnect` call. We'll want to grab the first port from this array. This [port](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker/port) is what we'll use to listen to and post messages to the port's connected browser instance.
 
 ```
 /* shared-worker.js */
