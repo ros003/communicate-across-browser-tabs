@@ -1,6 +1,5 @@
 const messagesList = document.getElementById('messagesList');
 const messagesPlaceholder = document.getElementById('messagesPlaceholder');
-console.log(messagesPlaceholder);
 
 export const changePageTitle = (title) => {
 	document.title = title;
